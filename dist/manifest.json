@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "name": "CsInvest Extension (React.Js)",
+    "version": "0.1",
+    "icons": {
+        "16": "icon-csinvest.png",
+        "48": "icon-csinvest.png",
+        "128": "icon-csinvest.png"
+    },
+    "action": {
+        "default_title": "Click Me",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://dashskins.com.br/cart", 
+                "https://cs-invest-2.vercel.app/api/*"
+            ],
+            "js": ["contentScript.js"]
+        }
+    ],
+    "options_page": "options.html",
+    "permissions": [
+        "activeTab",
+        "storage",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://cs-invest-2.vercel.app/*"
+    ]
+}
